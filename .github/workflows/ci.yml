@@ -23,3 +23,9 @@ jobs:
 
       - name: Run tests
         run: pytest
+      
+      - name: Build (simulate deploy)
+        run: |
+          echo "Tests passed! Ready to deploy."
+          echo "App version: 1.0.0" > build_info.txt
+          cat build_info.txt
