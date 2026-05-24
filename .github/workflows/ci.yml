@@ -13,19 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Set up Python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.11'
+      -name: Build Docker images
+       run: docker build -t ci .
 
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Run tests
-        run: pytest
-      
-      - name: Build (simulate deploy)
-        run: |
-          echo "Tests passed! Ready to deploy."
-          echo "App version: 1.0.0" > build_info.txt
-          cat build_info.txt
+      -name: Run tests in Docker
+       run: docker run ci
