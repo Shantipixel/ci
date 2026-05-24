@@ -7,4 +7,5 @@ RUN pip install -r requirements.txt
 
 COPY . .
 
-CMD ["pytest"]
+Expose 5000
+CMD ["python", "app.py"]
