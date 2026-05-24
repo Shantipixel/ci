@@ -13,8 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      -name: Build Docker images
-       run: docker build -t ci .
+      - name: Build Docker images
+        run: docker build -t ci .
 
-      -name: Run tests in Docker
-       run: docker run ci
+      - name: Run tests in Docker
+        run: docker run ci
